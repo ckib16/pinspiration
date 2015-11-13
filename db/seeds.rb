@@ -8,15 +8,15 @@
 
 Pin.create({
   title: "First pin",
-  image_url: "1text.com"
+  image_url: "http://lorempixel.com/400/200"
   })
 
 Pin.create({
   title: "Second pin",
-  image_url: "2text.com"
+  image_url: "http://lorempixel.com/400/200"
   })
 
 Pin.create({
   title: "Third pin",
-  image_url: "3text.com"
+  image_url: "http://lorempixel.com/400/200"
   })
