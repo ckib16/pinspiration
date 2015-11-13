@@ -2,7 +2,7 @@ class PinsController < ApplicationController
   before_action :set_pin, only: [:show, :edit, :update, :destroy]
 
   def index
-    @pins = Pin.all
+    @pins = current_user.pins
   end
 
   def new
@@ -10,7 +10,8 @@ class PinsController < ApplicationController
   end
 
   def create
-    @pin = Pin.new(pin_params)
+    @user = current_user
+    @pin = @user.pins.new(pin_params)
     if @pin.save
       flash[:notice] = "Successfully created..."
       redirect_to @pin
@@ -23,9 +24,11 @@ class PinsController < ApplicationController
   end
 
   def edit
+    @user = @pin.user
   end
 
   def update
+    @user = @pin.user
     if @pin.update(pin_params)
       flash[:notice] = "Successfully edited..."
       redirect_to @pin
