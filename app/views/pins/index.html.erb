@@ -1,0 +1,7 @@
+<h1>Index Pins</h1>
+
+<ul>
+  <% @pins.each do |pin| %>
+    <li><%= link_to pin.title, pin_path(pin) %></li>
+  <% end %>
+</ul>
