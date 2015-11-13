@@ -6,15 +6,16 @@ class PinsController < ApplicationController
   end
 
   def new
+    @board = Board.find(params[:board_id])
     @pin = Pin.new
   end
 
   def create
-    @user = current_user
-    @pin = @user.pins.new(pin_params)
+    @board = Board.find(params[:board_id])
+    @pin = @board.pins.new(pin_params)
     if @pin.save
       flash[:notice] = "Successfully created..."
-      redirect_to @pin
+      redirect_to @board
     else
       render :new
     end
@@ -24,11 +25,11 @@ class PinsController < ApplicationController
   end
 
   def edit
-    @user = @pin.user
+    @board = Board.find(params[:board_id])
   end
 
   def update
-    @user = @pin.user
+    @board = Board.find(params[:board_id])
     if @pin.update(pin_params)
       flash[:notice] = "Successfully edited..."
       redirect_to @pin
@@ -38,8 +39,9 @@ class PinsController < ApplicationController
   end
 
   def destroy
+    @board = Board.find(params[:board_id])
     @pin.destroy
-    redirect_to pins_path
+    redirect_to board_path(@board)
   end
 
 private

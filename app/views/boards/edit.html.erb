@@ -1,3 +1,13 @@
 <h1>Edit Board</h1>
 
 <%= render 'form' %>
+
+<p>
+  <ul>
+<% @board.pins.each do |pin| %>
+  <li><%= pin.title %></li>
+  <li><img src="<%= pin.image_url %>" alt="<%= pin.title %>"></li>
+  <li><%= link_to "Delete", board_pin_path(@board, pin), method: :delete %></li>
+<% end %>
+  </ul>
+</p>

@@ -1,6 +1,6 @@
 <p class="alert"><%= @pin.errors.full_messages if @pin.errors.any? %></p>
 
-<%= form_for @pin do |f| %>
+<%= form_for [@board, @pin] do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
 
