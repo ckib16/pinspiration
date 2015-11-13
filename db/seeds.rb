@@ -6,6 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Pin.destroy.all
+User.destroy.all
+
 Pin.create({
   title: "First pin",
   image_url: "http://lorempixel.com/400/200"
