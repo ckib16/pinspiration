@@ -2,6 +2,6 @@
 
 <ul>
   <% @pins.each do |pin| %>
-    <li><%= link_to pin.title, pin_path(pin) %></li>
+    <li><%= link_to pin.title, board_pin_path(pin) %></li>
   <% end %>
 </ul>

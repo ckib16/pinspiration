@@ -1,0 +1,14 @@
+<h1>Boards Show</h1>
+
+<h2> <%= @board.title %> </h2>
+
+<p>
+  <ul>
+<% @board.pins.each do |pin| %>
+  <li><%= pin.title %></li>
+  <li><img src="<%= pin.image_url %>" alt="<%= pin.title %>"></li>
+<% end %>
+  </ul>
+</p>
+
+<%= link_to "New Pin", new_board_pin_path %>

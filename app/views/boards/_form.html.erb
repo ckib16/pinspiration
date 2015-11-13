@@ -1,0 +1,8 @@
+<p class="alert"><%= @board.errors.full_messages if @board.errors.any? %></p>
+
+<%= form_for @board do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.submit %>
+<% end %>
